@@ -1,23 +1,27 @@
-import { MongoMemoryServer } from 'mongodb-memory-server';
-import mongoose from 'mongoose';
-import { beforeAll, afterAll, afterEach } from '@jest/globals';
+/**
+ * Global test setup
+ * Configures environment and mocks before all tests
+ */
 
-let mongoServer: MongoMemoryServer;
+// Set test environment variables
+process.env.NODE_ENV = 'test';
+process.env.AWS_REGION = 'us-east-1';
+process.env.AWS_ACCESS_KEY_ID = 'test-access-key';
+process.env.AWS_SECRET_ACCESS_KEY = 'test-secret-key';
+process.env.AWS_S3_BUCKET = 'test-bucket';
+process.env.AWS_S3_AUDIO_FOLDER = 'test-audio';
+process.env.MONGODB_URI = 'mongodb://localhost:27017/voice-synthesis-test';
 
-beforeAll(async () => {
-  mongoServer = await MongoMemoryServer.create();
-  const mongoUri = mongoServer.getUri();
-  await mongoose.connect(mongoUri);
-});
+// Increase timeout for integration tests
+jest.setTimeout(30000);
 
-afterAll(async () => {
-  await mongoose.disconnect();
-  await mongoServer.stop();
-});
-
-afterEach(async () => {
-  const collections = mongoose.connection.collections;
-  for (const key in collections) {
-    await collections[key].deleteMany({});
-  }
-});
+// Mock console methods to reduce noise in tests
+global.console = {
+  ...console,
+  log: jest.fn(),
+  debug: jest.fn(),
+  info: jest.fn(),
+  warn: jest.fn(),
+  // Keep error for debugging
+  error: console.error,
+};

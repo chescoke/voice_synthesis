@@ -13,8 +13,8 @@ BOLD='\033[1m'
 NC='\033[0m' # No Color
 
 # Load .env file
-if [ -f ../.env ]; then
-    export $(cat ../.env | grep -v '^#' | xargs)
+if [ -f .env ]; then
+    export $(cat .env | grep -v '^#' | xargs)
 else
     echo -e "${RED}❌ .env file not found${NC}"
     echo -e "${YELLOW}💡 Copy .env.example to .env and configure it${NC}"
