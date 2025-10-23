@@ -807,7 +807,7 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) par
 ```
 MIT License
 
-Copyright (c) 2024 Francisco De La Blanca
+Copyright (c) 2025 Francisco De La Blanca
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
