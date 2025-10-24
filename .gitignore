@@ -10,7 +10,8 @@ yarn.lock
 develop.env
 
 # Build output
-dist/
+backend/dist/
+dist
 build/
 *.log
 

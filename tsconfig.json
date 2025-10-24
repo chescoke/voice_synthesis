@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "es2019",
+    "module": "commonjs",
+    "lib": ["es2019"],
+    "outDir": "./backend/dist",
+    "rootDir": "./backend/src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "types": ["jest", "node"],
+    "baseUrl": ".",
+    "paths": {
+      "@config/*": ["backend/src/config/*"],
+      "@controllers/*": ["backend/src/controllers/*"],
+      "@services/*": ["backend/src/services/*"],
+      "@models/*": ["backend/src/models/*"],
+      "@routes/*": ["backend/src/routes/*"],
+      "@types/*": ["backend/src/types/*"],
+      "@middleware/*": ["backend/src/middleware/*"],
+      "@utils/*": ["backend/src/utils/*"],
+      "@websockets/*": ["backend/src/websocket/*"]
+    }
+  },
+  "include": ["backend/src/**/*"],
+  "exclude": ["node_modules", "backend/dist", "backend/tests"]
+}

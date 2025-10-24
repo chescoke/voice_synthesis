@@ -24,7 +24,8 @@ export const createApp = (): Application => {
         scriptSrc: [
           "'self'",
           "'unsafe-inline'",
-          "https://cdn.tailwindcss.com"
+          "https://cdn.tailwindcss.com",
+          "https://cdn.socket.io"
         ],
         fontSrc: [
           "'self'",
@@ -43,6 +44,8 @@ export const createApp = (): Application => {
         ],
         connectSrc: [
           "'self'",
+          "ws://localhost:*",
+          "wss://localhost:*",
           "https://*.amazonaws.com"
         ]
       }

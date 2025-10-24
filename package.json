@@ -4,7 +4,7 @@
   "description": "Audio recording, transcription and text-to-speech synthesis",
   "main": "backend/dist/server.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc --build",
     "start": "node backend/dist/server.js",
     "dev": "ts-node-dev --respawn --transpile-only backend/src/server.ts",
     "dev:mongodb": "./backend/scripts/start-with-mongodb.sh",
@@ -33,6 +33,7 @@
     "@aws-sdk/client-s3": "^3.478.0",
     "@aws-sdk/client-sts": "^3.914.0",
     "@aws-sdk/client-transcribe": "^3.478.0",
+    "@aws-sdk/client-transcribe-streaming": "^3.916.0",
     "@aws-sdk/lib-storage": "^3.478.0",
     "axios": "^1.6.5",
     "compression": "^1.7.4",
@@ -43,6 +44,7 @@
     "helmet": "^7.1.0",
     "mongoose": "^8.0.3",
     "multer": "^1.4.5-lts.1",
+    "socket.io": "^4.8.1",
     "uuid": "^9.0.1"
   },
   "devDependencies": {

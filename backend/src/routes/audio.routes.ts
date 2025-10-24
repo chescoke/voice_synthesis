@@ -45,6 +45,13 @@ router.post(
 );
 
 /**
+ * @route   GET /api/audio/voices/available
+ * @desc    Get available Polly voices
+ * @access  Public
+ */
+router.get('/voices/available', audioController.getVoices);
+
+/**
  * @route   GET /api/audio
  * @desc    Get all recordings with pagination
  * @access  Public
@@ -55,6 +62,7 @@ router.get('/', audioController.getRecordings);
  * @route   GET /api/audio/:id
  * @desc    Get recording by ID
  * @access  Public
+ * ⚠️  IMPORTANTE: Esta ruta debe ir DESPUÉS de rutas específicas como /voices/available
  */
 router.get('/:id', audioController.getRecordingById);
 
@@ -78,12 +86,5 @@ router.post('/:id/regenerate', audioController.regenerateAudio);
  * @access  Public
  */
 router.get('/:id/download', audioController.downloadAudio);
-
-/**
- * @route   GET /api/voices
- * @desc    Get available Polly voices
- * @access  Public
- */
-router.get('/voices/available', audioController.getVoices);
 
 export default router;
